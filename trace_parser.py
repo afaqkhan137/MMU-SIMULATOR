@@ -1,5 +1,4 @@
 class MemoryAccess:
-
     def __init__(self, line_num, address, is_write, original_line):
         self.line_num = line_num
         self.address = address
@@ -7,15 +6,11 @@ class MemoryAccess:
         self.original_line = original_line
 
     def __repr__(self):
-        if self.is_write:
-            op="WRITE"
-        else :
-            op="READ"
+        op = "WRITE" if self.is_write else "READ"
         return f"{op} {hex(self.address)} (line {self.line_num})"
 
 
 def parse_trace(filename, max_address=0xFFFFFFFF):
-
     accesses = []
     errors = []
     line_count = 0
@@ -33,42 +28,23 @@ def parse_trace(filename, max_address=0xFFFFFFFF):
                 if not line:
                     continue
 
-                # Parse the line
-                is_write = False
-                address_str = None
-
-                # Split into parts
                 parts = line.split()
 
-                if len(parts) == 2:
-                    # Format: "R 0x1234" or "0x1234 R"
-                    first, second = parts
-
-                    # Check if first part is R/W
-                    if first.upper() in ['R', 'W', 'READ', 'WRITE']:
-                        # Format: "R 0x1234"
-                        is_write = (first.upper() in ['W', 'WRITE'])
-                        address_str = second
-                    elif second.upper() in ['R', 'W', 'READ', 'WRITE']:
-                        # Format: "0x1234 R"
-                        is_write = (second.upper() in ['W', 'WRITE'])
-                        address_str = first
-                    else:
-                        errors.append(f"Line {line_num}: Invalid format - '{line}'")
-                        continue
-
-                elif len(parts) == 1:
-                    # Format: "0x1234" only (no R/W info)
-                    address_str = parts[0]
-                    is_write = False  # Assume read
-                    # Uncomment next line to show warning
-                    # print(f"Warning: Line {line_num} has no R/W info. Assuming READ.")
-
-                else:
-                    errors.append(f"Line {line_num}: Invalid format - '{line}'")
+                if len(parts) != 2:
+                    errors.append(f"Line {line_num}: Invalid format")
                     continue
 
-                # Clean address string
+                operation, address_str = parts
+                operation = operation.upper()
+
+                # Operation valid check
+                if operation not in ['R', 'W']:
+                    errors.append(f"Line {line_num}: Invalid operation '{operation}' - expected R or W")
+                    continue
+
+                # Write check
+                is_write = (operation in ['W'])
+
                 address_str = address_str.strip()
                 if address_str.startswith('0x') or address_str.startswith('0X'):
                     address_str = address_str[2:]
@@ -80,7 +56,7 @@ def parse_trace(filename, max_address=0xFFFFFFFF):
                     errors.append(f"Line {line_num}: Invalid hex - '{address_str}'")
                     continue
 
-                # Check out of bounds (32-bit)
+                # Range check
                 if address > max_address:
                     errors.append(f"Line {line_num}: Out of bounds - {hex(address)} > {hex(max_address)}")
                     continue
@@ -122,20 +98,11 @@ def parse_trace(filename, max_address=0xFFFFFFFF):
 
 
 def get_stats(accesses):
-
     if not accesses:
         return {'total': 0, 'reads': 0, 'writes': 0, 'write_percent': 0}
 
-    # Same as writing:
-    reads = 0
-    for a in accesses:
-        if not a.is_write:  # if it's a READ
-            reads += 1
-
-    writes = 0
-    for a in accesses:
-        if a.is_write:  # if it's a WRITE
-            writes += 1
+    reads = sum(1 for a in accesses if not a.is_write)
+    writes = sum(1 for a in accesses if a.is_write)
 
     return {
         'total': len(accesses),
@@ -158,11 +125,7 @@ if __name__ == "__main__":
     print("\nFIRST 5 ACCESSES:")
     print("-" * 40)
     for acc in accesses[:5]:
-        # Same as writing:
-        if acc.is_write:
-            op = "WRITE"
-        else:
-            op = "READ"
+        op = "WRITE" if acc.is_write else "READ"
         print(f"Line {acc.line_num}: {op} {hex(acc.address)}")
 
     # Print statistics
