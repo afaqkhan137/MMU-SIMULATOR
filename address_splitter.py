@@ -6,19 +6,6 @@ def split_address(virtual_address, offset_bits, offset_mask):
 
     return vpn, offset
 
-
-def split_address_hex(hex_address, offset_bits, offset_mask):
-
-    # Convert hex to integer
-    if isinstance(hex_address, str):
-        if hex_address.startswith('0x') or hex_address.startswith('0X'):
-            hex_address = hex_address[2:]
-        address = int(hex_address, 16)
-    else:
-        address = hex_address
-
-    return split_address(address, offset_bits, offset_mask)
-
 def print_address_breakdown(address, vpn, offset, page_size_bytes):
 
     print(f"\nAddress: {hex(address)} ({address})")
