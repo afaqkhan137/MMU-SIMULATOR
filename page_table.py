@@ -6,7 +6,6 @@ class PageTableEntry:
         self.dirty = dirty
 
     def __repr__(self):
-        """Printable representation"""
         return f"PTE(frame={self.frame}, valid={self.valid}, dirty={self.dirty})"
 
 
@@ -51,14 +50,13 @@ class PageTable:
         if entry:
             entry.valid = 0
             entry.frame = -1
-            # Note: dirty bit is preserved (still need to write to disk if dirty)
 
     def set_frame(self, vpn, frame):
-
         entry = self.table.get(vpn)
         if entry:
             entry.frame = frame
             entry.valid = 1
+            entry.dirty = 0
         else:
             self.add_entry(vpn, frame)
 
@@ -68,16 +66,15 @@ class PageTable:
 
     def print_table(self):
 
-        print("\n--- Page Table Contents ---")
+        print("\nPage Table Contents")
         valid_entries = [(vpn, pte) for vpn, pte in self.table.items() if pte.valid == 1]
         if not valid_entries:
             print("(empty)")
         else:
-            print(f"{'VPN':<8} {'Frame':<8} {'Dirty':<8}")
+            print(f"{'VPN'} {'Frame'} {'Dirty'}")
             print("-" * 30)
             for vpn, pte in sorted(valid_entries):
-                print(f"{vpn:<8} {pte.frame:<8} {pte.dirty:<8}")
-        print("----------------------------")
+                print(f"{vpn} {pte.frame} {pte.dirty}")
 
 
 # Test the module when run directly
