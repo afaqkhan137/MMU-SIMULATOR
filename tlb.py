@@ -73,7 +73,7 @@ class TLB:
 
         print("\n--- TLB Contents ---")
         if not self.map:
-            print("(empty)")
+            print("(empty)" )
         else:
             print(f"{'VPN'} {'Frame'}")
             print("-" * 20)
