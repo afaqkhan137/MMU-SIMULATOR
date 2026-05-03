@@ -49,11 +49,10 @@ class FrameManager:
 
     def print_status(self):
 
-        print(f"\n--- Frame Manager Status ---")
+        print(f"\nFrame Manager")
         print(f"Total frames:   {self.num_frames}")
         print(f"Free frames:    {self.get_free_count()} {self.free_frames}")
         print(f"Used frames:    {self.get_used_count()} {sorted(self.used_frames)}")
-        print(f"----------------------------")
 
 
 # Test the module when run directly

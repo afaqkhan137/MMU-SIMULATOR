@@ -76,19 +76,15 @@ class TLB:
             print("(empty)" )
         else:
             print(f"{'VPN'} {'Frame'}")
-            print("-" * 20)
             for vpn in self.order:
                 frame = self.map[vpn]
                 print(f"{vpn} {frame}")
-        print("--------------------")
 
 
 # Test the module when run directly
 if __name__ == "__main__":
-    print("=" * 50)
-    print("TESTING TLB")
-    print("=" * 50)
 
+    print("TESTING TLB")
     # Create TLB with size 4
     tlb = TLB(size=4)
 
@@ -128,6 +124,4 @@ if __name__ == "__main__":
     print("\n--- Statistics ---")
     tlb.print_stats()
 
-    print("\n" + "=" * 50)
     print("✅ TLB works!")
-    print("=" * 50)

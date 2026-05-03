@@ -104,6 +104,4 @@ if __name__ == "__main__":
     print(f"VPNs in RAM: {vpns_in_ram}")
     print(f"At position 2, evict: {opt.evict(2, vpns_in_ram)}")
 
-    print("\n" + "=" * 50)
     print("✅ Replacement Algorithms work!")
-    print("=" * 50)

@@ -12,13 +12,11 @@ class SystemConfig:
         # Calculated values
         self.ram_size_bytes = 0
         self.num_frames = 0
-        self.offset_bits = 0  # This is the SHIFT value!
+        self.offset_bits = 0
         self.offset_mask = 0
 
     def print_config(self):
-        print("\n" + "=" * 50)
         print("SYSTEM CONFIGURATION")
-        print("=" * 50)
         print(f"RAM Size: {self.ram_size_kb} KB ({self.ram_size_bytes} bytes)")
         print(f"Page Size: {self.page_size_bytes} bytes")
         print(f"Total Frames: {self.num_frames}")
@@ -28,7 +26,6 @@ class SystemConfig:
         print(f"TLB Latency: {self.tlb_latency_ns} ns")
         print(f"RAM Latency: {self.ram_latency_ns} ns")
         print(f"Disk Latency: {self.disk_latency_ns} ms")
-        print("=" * 50 + "\n")
 
 
 def parse_config(filename):

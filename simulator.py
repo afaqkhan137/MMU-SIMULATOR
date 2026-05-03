@@ -30,14 +30,12 @@ def main():
 
     # User chooses algorithm
     while True:
-        print("\n" + "-" * 40)
-        print("   REPLACEMENT ALGORITHM MENU")
-        print("-" * 40)
+        print("   REPLACEMENT ALGORITHM MENU\n")
+
         print("  1. FIFO (First-In-First-Out)")
         print("  2. LRU (Least Recently Used)")
         print("  3. OPT (Optimal - Clairvoyant)")
         print("  0. Exit")
-        print("-" * 40)
 
         try:
             choice = int(input("\nEnter your choice (0-3): "))
@@ -71,7 +69,6 @@ def main():
             mmu = MMU(config, fm, algorithm=algorithm)
 
         print(f"\nProcessing memory accesses with {algorithm}...")
-        print("-" * 60)
 
         # Reload accesses for each run
         accesses = parse_trace(trace_file)

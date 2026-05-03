@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292a0b62-38d5-48cb-8811-3ef1ab739c5c" name="Changes" comment="Updated TLB">
-      <change afterPath="$PROJECT_DIR$/beladys.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mmu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/replacement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trace.txt" afterDir="false" />
+    <list default="true" id="292a0b62-38d5-48cb-8811-3ef1ab739c5c" name="Changes" comment="Added swapping, translation, simulation, GUI modules">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trace_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/trace_small.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777699831932</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added swapping, translation, simulation, GUI modules">
+      <option name="closed" value="true" />
+      <created>1777829628370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777829628370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +243,7 @@
     <MESSAGE value="Updated Address Splitter" />
     <MESSAGE value="Updated Trace Parser" />
     <MESSAGE value="Updated TLB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated TLB" />
+    <MESSAGE value="Added swapping, translation, simulation, GUI modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added swapping, translation, simulation, GUI modules" />
   </component>
 </project>

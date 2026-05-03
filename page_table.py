@@ -72,7 +72,6 @@ class PageTable:
             print("(empty)")
         else:
             print(f"{'VPN'} {'Frame'} {'Dirty'}")
-            print("-" * 30)
             for vpn, pte in sorted(valid_entries):
                 print(f"{vpn} {pte.frame} {pte.dirty}")
 

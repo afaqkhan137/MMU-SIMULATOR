@@ -98,25 +98,18 @@ class MMU:
         latency = 0
 
         if not self.frame_manager.has_free_frames():
-            # RAM is full - need to evict
-
-            # Get list of valid VPNs currently in RAM
             valid_vpns = [v for v, pte in self.page_table.table.items() if pte.valid]
 
             if not valid_vpns:
                 raise Exception("No valid pages in RAM to evict!")
 
-            # Try to get victim from replacement algorithm
             if self.algorithm == "OPT":
                 evicted_vpn = self.replacement.evict(self.current_index, valid_vpns)
             else:
                 evicted_vpn = self.replacement.evict()
-
-                # If replacement returned None (empty queue), pick first valid page
                 if evicted_vpn is None:
                     evicted_vpn = valid_vpns[0]
 
-            # Get evicted page info
             evicted_pte = self.page_table.get_entry(evicted_vpn)
             evicted_frame = evicted_pte.frame
             evicted_dirty = evicted_pte.dirty
@@ -130,9 +123,11 @@ class MMU:
             else:
                 print(f"  Evicted page CLEAN: No disk write needed")
 
-            self.replacement.invalidate(evicted_vpn)
-            self.tlb.invalidate(evicted_vpn)
+            # Only call invalidate for algorithms that have it (FIFO and LRU)
+            if self.algorithm != "OPT":
+                self.replacement.invalidate(evicted_vpn)
 
+            self.tlb.invalidate(evicted_vpn)
             self.frame_manager.free_frame(evicted_frame)
             evicted_pte.valid = 0
             evicted_pte.frame = -1
@@ -142,7 +137,6 @@ class MMU:
             frame = self.frame_manager.allocate_frame()
             print(f"  Free frame available: allocated Frame {frame}")
 
-        # Load page from disk
         latency += self.config.disk_latency_ns
         self.disk_reads += 1
         print(f"  Loading VPN {vpn} from disk: +{self.config.disk_latency_ns} ns")
@@ -184,10 +178,8 @@ class MMU:
 
     def print_stats(self):
         stats = self.get_stats()
+        print(f"MMU STATISTICS ({stats['algorithm']})\n")
 
-        print("\n" + "=" * 60)
-        print(f"MMU STATISTICS ({stats['algorithm']})")
-        print("=" * 60)
         print(f"Total Accesses:     {stats['total_accesses']}")
         print(f"\nTLB Statistics:")
         print(f"  Hits:             {stats['tlb_hits']}")
@@ -205,7 +197,6 @@ class MMU:
         print(f"\nEffective Access Time (EAT):")
         print(f"  Theoretical:      {stats['eat_ns']:.2f} ns ({stats['eat_ms']:.4f} ms)")
         print(f"  Actual Average:   {stats['avg_latency_ns']:.0f} ns ({stats['avg_latency_ms']:.4f} ms)")
-        print("=" * 60)
 
 # Test the module when run directly
 if __name__ == "__main__":
