@@ -7,7 +7,7 @@ class SystemConfig:
         self.tlb_size = 0
         self.tlb_latency_ns = 0
         self.ram_latency_ns = 0
-        self.disk_latency_ms = 0
+        self.disk_latency_ns = 0
 
         # Calculated values
         self.ram_size_bytes = 0
@@ -27,7 +27,7 @@ class SystemConfig:
         print(f"TLB Size: {self.tlb_size}")
         print(f"TLB Latency: {self.tlb_latency_ns} ns")
         print(f"RAM Latency: {self.ram_latency_ns} ns")
-        print(f"Disk Latency: {self.disk_latency_ms} ms")
+        print(f"Disk Latency: {self.disk_latency_ns} ms")
         print("=" * 50 + "\n")
 
 
@@ -67,8 +67,8 @@ def parse_config(filename):
                     config.tlb_latency_ns = value
                 elif name == 'RAM_LATENCY_NS':
                     config.ram_latency_ns = value
-                elif name == 'DISK_LATENCY_MS':
-                    config.disk_latency_ms = value
+                elif name == 'DISK_LATENCY_NS':
+                    config.disk_latency_ns = value
                 else:
                      print(f"Warning: Unknown config parameter '{name}'")
     except FileNotFoundError:

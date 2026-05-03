@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292a0b62-38d5-48cb-8811-3ef1ab739c5c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frame_manager.py" afterDir="false" />
+    <list default="true" id="292a0b62-38d5-48cb-8811-3ef1ab739c5c" name="Changes" comment="Updated TLB">
+      <change afterPath="$PROJECT_DIR$/beladys.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/replacement.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simulator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trace.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trace_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/trace_small.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +53,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.address_splitter.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config_parser.executor&quot;: &quot;Run&quot;,
-    &quot;Python.trace_parser.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.address_splitter.executor": "Run",
+    "Python.config_parser.executor": "Run",
+    "Python.gui.executor": "Run",
+    "Python.mmu.executor": "Run",
+    "Python.page_table.executor": "Run",
+    "Python.simulator.executor": "Run",
+    "Python.tlb.executor": "Run",
+    "Python.trace_parser.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/pc/PycharmProjects/mmu_project",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
-  <component name="RunManager" selected="Python.trace_parser">
+}]]></component>
+  <component name="RunManager">
     <configuration name="address_splitter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mmu_project" />
       <option name="ENV_FILES" value="" />
@@ -125,8 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.trace_parser" />
         <item itemvalue="Python.address_splitter" />
+        <item itemvalue="Python.trace_parser" />
         <item itemvalue="Python.config_parser" />
       </list>
     </recent_temporary>
@@ -147,6 +161,55 @@
       <option name="presentableId" value="Default" />
       <updated>1776507932770</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added Page table functionality to simulator">
+      <option name="closed" value="true" />
+      <created>1777269503318</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1777269503318</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated Page Table">
+      <option name="closed" value="true" />
+      <created>1777291244109</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1777291244109</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated Address Splitter">
+      <option name="closed" value="true" />
+      <created>1777291281712</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777291281712</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated Trace Parser">
+      <option name="closed" value="true" />
+      <created>1777292162845</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777292162845</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated Trace Parser">
+      <option name="closed" value="true" />
+      <created>1777292347056</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777292347056</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated TLB">
+      <option name="closed" value="true" />
+      <created>1777699831932</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777699831932</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,5 +234,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Page table functionality to simulator" />
+    <MESSAGE value="Updated Page Table" />
+    <MESSAGE value="Updated Address Splitter" />
+    <MESSAGE value="Updated Trace Parser" />
+    <MESSAGE value="Updated TLB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated TLB" />
   </component>
 </project>
